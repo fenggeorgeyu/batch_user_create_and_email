@@ -1,2 +1,7 @@
-# batch_user_create_and_email
-batch_user_create_and_email
+ 
+# Description
+
+Script to create users in batch from a CSV input and email their credentials
+
+
+
