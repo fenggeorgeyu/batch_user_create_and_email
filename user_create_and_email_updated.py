@@ -32,29 +32,28 @@ if __name__ == '__main__':
             subprocess.run(['useradd', '-m', userid ])
             cmd = f"echo {userid}:{passd} | chpasswd"
             subprocess.call(cmd,shell=True)
-        #os.system('echo userid:,'passd', | chpasswd')
             mail_to = emailid
             mail_subject = "LINUX USERID AND PASSWORD"
-            mail_body = f"Greetings,\
-            \n \
-            \n Your account on a server in Data Lab has been created. Please use ssh on Linux or Putty on Windows to login to the server terminal. Let me know how it works.\
-            \n \
-            \n* Server IP: xxx (you may need to login YSU VPN when off campus)\
-            \n* Username: {userid} (Your YSU email initial. e.g. If your email is [abc@ysu.edu](mailto:abc@ysu.edu), your username is abc.)\
-            \n* Temporary Password: {passd} (you will be asked to change your password during your first time login)\
-            \n \
-            \nReminders:\
-            \n \
-            \n* Please note that the data may not be backed up on this server and backup your data periodically.\
-            \n* For security purpose, please allow me to remind you that this server is for teaching/research only. Please comply with the YSU and CSIS rules and security policies when using this server. You will be responsible for any unauthorized misuse of this server. The best practice is to check with me when there is a question on this.\
-            \n \
-            \nBest wishes,\
-            \nFeng George Yu, Ph.D.\
-            \nAssociate Professor\
-            \nSchool of Computer Science, Information, and Engineering Technology\
-            \nYoungstown State University, OH 44555\
-            \nOffice: Meshel 316\
-            \nLandline: 330.941.1775"
+            mail_body = f"""Greetings,
+            
+             Your account on a server in Data Lab has been created. Please use ssh on Linux or Putty on Windows to login to the server terminal. Let me know how it works.
+        
+            * Server IP: xxx (you may need to login YSU VPN when off campus)
+            * Username: {userid} (Your YSU email initial. e.g. If your email is [abc@ysu.edu](mailto:abc@ysu.edu), your username is abc.)
+            * Temporary Password: {passd} (you will be asked to change your password during your first time login)
+            
+            Reminders:
+            
+            * Please note that the data may not be backed up on this server and backup your data periodically.
+            * For security purpose, please allow me to remind you that this server is for teaching/research only. Please comply with the YSU and CSIS rules and security policies when using this server. You will be responsible for any unauthorized misuse of this server. The best practice is to check with me when there is a question on this.
+            
+            Best wishes,
+            Feng George Yu, Ph.D.
+            Associate Professor
+            School of Computer Science, Information, and Engineering Technology
+            Youngstown State University, OH 44555
+            Office: Meshel 316
+            Landline: 330.941.1775"""
             print(mail_from)
             mimemsg = MIMEMultipart()
             mimemsg['From']=mail_from
@@ -71,4 +70,4 @@ if __name__ == '__main__':
             output = f" echo '{YSU_ID}','{username}','{last_name}','{userid}','{passd}','New' >> output.csv"
             subprocess.run(output, shell=True)
         else:
-            print('The User', userid, 'already exists')
+            print('The User', userid, 'already exists.')
